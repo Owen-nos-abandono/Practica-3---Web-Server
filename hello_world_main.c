@@ -8,18 +8,14 @@
 #include "esp_netif.h"
 #include "esp_http_server.h"
 
-// -----------------------------------------------------------------------------
-// CONFIGURACIÓN DE RED DEL ACCESS POINT
-// -----------------------------------------------------------------------------
-#define WIFI_SSID     "ESP32_APUCHP"   // Nombre de la red Wi-Fi
-#define WIFI_PASS     "12345678"       // Contraseña (mínimo 8 caracteres)
-#define MAX_CLIENTS   4                // Máx. dispositivos conectados
+
+#define WIFI_SSID     "A56 de Janine"  
+#define WIFI_PASS     "Zeus1234"       
+#define MAX_CLIENTS   4                
 
 static const char *TAG = "WebServer_AP";
 
-// -----------------------------------------------------------------------------
-// MANEJADOR HTTP - RESPONDE AL CLIENTE
-// -----------------------------------------------------------------------------
+
 esp_err_t root_get_handler(httpd_req_t *req)
 {
     const char resp[] =
@@ -34,9 +30,6 @@ esp_err_t root_get_handler(httpd_req_t *req)
     return ESP_OK;
 }
 
-// -----------------------------------------------------------------------------
-// INICIALIZAR Y ARRANCAR EL SERVIDOR WEB
-// -----------------------------------------------------------------------------
 httpd_handle_t start_webserver(void)
 {
     httpd_config_t config = HTTPD_DEFAULT_CONFIG();
